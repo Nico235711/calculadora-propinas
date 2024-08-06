@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* scrollbar.css */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #10B981 #E0F7F4;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #E0F7F4;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #10B981;
+  border-radius: 10px;
+  border: 2px solid #A7F3D0;
+}

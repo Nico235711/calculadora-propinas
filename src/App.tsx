@@ -30,7 +30,7 @@ function App() {
           }
         </div>
 
-        <div className="border-2 border-slate-300 rounded-md p-5 md:overflow-y-scroll md:h-screen space-y-10">
+        <div className="border-2 border-slate-300 rounded-md p-5 space-y-10">
           {
             order.length ? (
               <>

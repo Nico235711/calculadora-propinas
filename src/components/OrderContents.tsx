@@ -12,7 +12,7 @@ const OrderContents = ({ order, removeItem } : OrderContentsProps) => {
     <div>
       <h2 className="text-5xl font-bold">Consumo</h2>
 
-      <div className="mt-5 space-y-3">
+      <div className="mt-5 md:overflow-y-scroll md:h-screen space-y-3 scrollbar-thin">
         {
           order.map( item => (
             <div
