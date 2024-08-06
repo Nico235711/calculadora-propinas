@@ -16,7 +16,7 @@ function App() {
         <h1 className="text-4xl font-bold text-center">Calculadora de Propinas y Consumo</h1>
       </header>
 
-      <main className="max-w-7xl mx-auto py-20 md:grid md:grid-cols-2">
+      <main className="max-w-7xl mx-auto py-20 lg:grid lg:grid-cols-2">
         <div className="p-5">
           <h2 className="mb-5 text-5xl font-bold">Menú</h2>
           {
@@ -30,7 +30,7 @@ function App() {
           }
         </div>
 
-        <div className="border-2 border-slate-300 rounded-md p-5 space-y-10">
+        <div className="border-2 border-slate-300 rounded-md p-5 m-5 space-y-10">
           {
             order.length ? (
               <>
