@@ -19,15 +19,17 @@ function App() {
       <main className="max-w-7xl mx-auto py-20 lg:grid lg:grid-cols-2">
         <div className="p-5">
           <h2 className="mb-5 text-5xl font-bold">Menú</h2>
-          {
-            menuItems.map(item => (
-              <MenuItem
-                key={item.id}
-                item={item}
-                addItem={addItem}
-              />
-            ))
-          }
+          <div className="grid md:grid-cols-2 gap-5">
+            {
+              menuItems.map(item => (
+                <MenuItem
+                  key={item.id}
+                  item={item}
+                  addItem={addItem}
+                />
+              ))
+            }
+          </div>
         </div>
 
         <div className="border-2 border-slate-300 rounded-md p-5 m-5 space-y-10">
@@ -38,20 +40,20 @@ function App() {
                   order={order}
                   removeItem={removeItem}
                 />
-                
+
                 <TipPercentageForm
-                  tip={tip} 
+                  tip={tip}
                   setTip={setTip}
                 />
-                
-                <OrderTotals 
+
+                <OrderTotals
                   order={order}
                   tip={tip}
                   placeOrder={placeOrder}
                 />
               </>
-              ) : (
-            <p className="font-bold text-3xl text-indigo-600">La orden esta vacía</p>
+            ) : (
+              <p className="font-bold text-3xl text-indigo-600">La orden esta vacía</p>
             )
           }
         </div>
