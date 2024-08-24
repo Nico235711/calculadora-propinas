@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { MenuItems, OrderItem } from "../types"
 
 const useOrder = () => {
@@ -37,13 +37,16 @@ const useOrder = () => {
     setTip(0)
   }
 
+  const isHaveOrders = useMemo(() => order.length !== 0, [order])
+
   return {
     order,
     tip,
     setTip,
     addItem,
     removeItem,
-    placeOrder
+    placeOrder,
+    isHaveOrders
   }
 }
 
