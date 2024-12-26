@@ -1,10 +1,28 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { MenuItems, OrderItem } from "../types"
+
+const initialOrder = () => {
+  const order = localStorage.getItem('order')
+  return order ? JSON.parse(order) : []
+}
+
+const initialTip = () => {
+  const tip = localStorage.getItem('tip')
+  return tip ? JSON.parse(tip) : 0
+}
 
 const useOrder = () => {
 
-  const [order, setOrder] = useState<OrderItem[]>([])
-  const [tip, setTip] = useState(0)
+  const [order, setOrder] = useState<OrderItem[]>(initialOrder)
+  const [tip, setTip] = useState(initialTip)
+
+  useEffect(() => {
+    localStorage.setItem('order', JSON.stringify(order))
+  }, [order]);
+
+  useEffect(() => {
+    localStorage.setItem('tip', JSON.stringify(tip))
+  }, [tip]);
 
   const addItem = (item: MenuItems) => {
 
