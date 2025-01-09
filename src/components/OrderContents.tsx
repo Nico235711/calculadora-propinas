@@ -18,7 +18,7 @@ const OrderContents = ({ order, removeItem, isHaveOrders } : OrderContentsProps)
           order.map( item => (
             <div
               key={item.id}
-              className="border-2 rounded-md p-5 space-y-3 flex md:justify-between items-end"
+              className="border-2 rounded-md p-5 space-y-3 flex justify-between items-end"
             >
               <div>
                 <p className="font-bold text-xl">Orden: <span className="font-normal">{item.name} - {formatCurrency(item.price)}</span></p>
