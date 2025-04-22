@@ -13,8 +13,6 @@ const App = () => {
     tip,
     setTip,
     removeItem,
-    increaseQuantity,
-    decreaseQuantity,
     placeOrder
   } = useOrder()
 
@@ -46,8 +44,6 @@ const App = () => {
                   key={item.id}
                   item={item}
                   removeItem={removeItem}
-                  increaseQuantity={increaseQuantity}
-                  decreaseQuantity={decreaseQuantity}
                 />
               ))}
               <TipPercentageForm
