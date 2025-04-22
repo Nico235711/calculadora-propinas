@@ -5,11 +5,9 @@ import { formatCurrency } from "../utils"
 type OrderContentProps = {
   item: OrderItem
   removeItem: (id: OrderItem["id"]) => void
-  increaseQuantity: (id: OrderItem["id"]) => void
-  decreaseQuantity: (id: OrderItem["id"]) => void
 }
 
-const OrderContent = ({ item, removeItem, increaseQuantity, decreaseQuantity }: OrderContentProps) => {
+const OrderContent = ({ item, removeItem }: OrderContentProps) => {
 
   const subTotal = useMemo(() => item.price * item.quantity, [item])
 
@@ -19,19 +17,8 @@ const OrderContent = ({ item, removeItem, increaseQuantity, decreaseQuantity }: 
         <div>
           <p className="text-lg">{item.name} - {formatCurrency(item.price)}</p>
           <p className="text-lg mt-3">
-            <button
-              type="button"
-              className="mr-3 py-0.5 px-2 bg-black text-white cursor-pointer"
-              onClick={() => decreaseQuantity(item.id)}
-            >-</button>
             X{item.quantity} - {formatCurrency(subTotal)}
-            <button
-              type="button"
-              className="ml-3 py-0.5 px-2 bg-black text-white cursor-pointer"
-              onClick={() => increaseQuantity(item.id)}
-            >+</button>
           </p>
-
         </div>
         <button
           type="button"

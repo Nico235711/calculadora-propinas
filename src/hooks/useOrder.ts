@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { MenuItem, OrderItem } from "../types"
 
 const MAX_ITEMS = 5
-const MIN_ITEMS = 1
 const initialOrder = () => {
   const orderLS = localStorage.getItem("orders")
   return orderLS ? JSON.parse(orderLS) : []
@@ -46,24 +45,6 @@ export const useOrder = () => {
     setOrder(updatedOrder) 
   }
 
-  const increaseQuantity = (id: OrderItem["id"]) => {
-    const updatedOrder = order.map(item => (
-      item.id === id && item.quantity < MAX_ITEMS
-        ? { ...item, quantity: item.quantity + 1 }
-        : item
-    ))
-    setOrder(updatedOrder)
-  }
-
-  const decreaseQuantity = (id: OrderItem["id"]) => {
-    const updatedOrder = order.map(item => (
-      item.id === id && item.quantity > MIN_ITEMS
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    ))
-    setOrder(updatedOrder)
-  }
-
   const placeOrder = () => {
     setOrder([])
     setTip(0)
@@ -75,8 +56,6 @@ export const useOrder = () => {
     tip,
     setTip,
     removeItem,
-    increaseQuantity,
-    decreaseQuantity,
     placeOrder
   }
 }
